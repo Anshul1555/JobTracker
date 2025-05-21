@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Brian Kernighan",
+        "email": "bkernighan@techfriends.dev",
+        "password": "password01",
+        "jobs": [
+            {
+                "title": "Frontend Developer",
+                "company": "Google",
+                "link": "https://careers.google.com/jobs/frontend-dev-1234",
+                "status": "applied"
+            },
+            {
+                "title": "React Developer",
+                "company": "Meta",
+                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "status": "interview"
+            }
+        ]
+    }
+]

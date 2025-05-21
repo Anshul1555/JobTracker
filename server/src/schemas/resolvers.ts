@@ -99,7 +99,7 @@ const resolvers = {
       throw AuthenticationError;
     },
 
-    removeJob: async (_parent: any, { profileId, title }: RemoveJobArgs, context: Context): Promise<ProfileType | null> => {
+    removeJob: async (_parent: any, { title }: RemoveJobArgs, context: Context): Promise<ProfileType | null> => {
       if (context.user) {
         return await Profile.findOneAndUpdate(
           { _id: context.user._id },
