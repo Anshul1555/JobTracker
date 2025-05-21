@@ -1,13 +1,21 @@
 import { Schema, model, Document } from 'mongoose';
 import bcrypt from 'bcrypt';
 
+// Define a subdocument type for a job entry
+interface Job {
+  title: string;
+  company?: string;
+  link: string;
+  status?: string;
+}
+
 // Define an interface for the Profile document
-interface IProfile extends Document {
+export interface IProfile extends Document {
   _id: string;
   name: string;
   email: string;
-  password:string;
-  skills: string[];
+  password: string;
+  jobs: Job[]; // Changed from string[] to Job[]
   isCorrectPassword(password: string): Promise<boolean>;
 }
 
@@ -31,10 +39,12 @@ const profileSchema = new Schema<IProfile>(
       required: true,
       minlength: 5,
     },
-    skills: [
+    jobs: [
       {
-        type: String,
-        trim: true,
+        title: { type: String, required: true },
+        company: { type: String },
+        link: { type: String, required: true },
+        status: { type: String, default: 'applied' },
       },
     ],
   },
@@ -45,21 +55,20 @@ const profileSchema = new Schema<IProfile>(
   }
 );
 
-// set up pre-save middleware to create password
+// Pre-save middleware to hash password if it's new or modified
 profileSchema.pre<IProfile>('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
-// compare the incoming password with the hashed password
+// Instance method to check if a password is correct
 profileSchema.methods.isCorrectPassword = async function (password: string): Promise<boolean> {
   return bcrypt.compare(password, this.password);
 };
 
+// Create and export the Profile model
 const Profile = model<IProfile>('Profile', profileSchema);
-
 export default Profile;

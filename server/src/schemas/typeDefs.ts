@@ -1,21 +1,35 @@
 const typeDefs = `
+  type Job {
+    title: String!
+    company: String
+    link: String!
+    status: String
+  }
+
   type Profile {
     _id: ID
     name: String
     email: String
     password: String
-    skills: [String]!
+    jobs: [Job]!
   }
 
   type Auth {
     token: ID!
     profile: Profile
   }
-  
+
   input ProfileInput {
     name: String!
     email: String!
     password: String!
+  }
+
+  input JobInput {
+    title: String!
+    company: String
+    link: String!
+    status: String
   }
 
   type Query {
@@ -28,9 +42,9 @@ const typeDefs = `
     addProfile(input: ProfileInput!): Auth
     login(email: String!, password: String!): Auth
 
-    addSkill(profileId: ID!, skill: String!): Profile
+    addJob(profileId: ID!, job: JobInput!): Profile
     removeProfile: Profile
-    removeSkill(skill: String!): Profile
+    removeJob(profileId: ID!, title: String!): Profile
   }
 `;
 
