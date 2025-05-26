@@ -1,7 +1,7 @@
 [
     {
         "name": "Brian Kernighan",
-        "email": "bkernighan@techfriends.dev",
+        "email": "anshul@gmail.com",
         "password": "password01",
         "jobs": [
             {
@@ -14,7 +14,31 @@
                 "title": "React Developer",
                 "company": "Meta",
                 "link": "https://www.metacareers.com/jobs/react-dev-5678",
-                "status": "interview"
+                "status": "Interview Scheduled"
+            },
+            {
+                "title": " Developer",
+                "company": "Tech",
+                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "status": "Interview Completed"
+            },
+            {
+                "title": "FE Developer",
+                "company": "ALpha",
+                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "status": "Offer Accepted"
+            },
+            {
+                "title": "BE Developer",
+                "company": "Amazon",
+                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "status": "Offer Declined"
+            },
+            {
+                "title": "React Developer",
+                "company": "Moneris",
+                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "status": "On Hold"
             }
         ]
     }

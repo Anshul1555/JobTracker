@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 import db from './config/connection.js';
-import { ApolloServer } from '@apollo/server'; // Note: Import from @apollo/server-express
+import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import { typeDefs, resolvers } from './schemas/index.js';
 import { authenticateToken } from './utils/auth.js';
@@ -17,7 +17,11 @@ const startApolloServer = async () => {
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
     app.use('/graphql', expressMiddleware(server, {
-        context: authenticateToken
+        context: async ({ req }) => {
+            // Call authenticateToken and get user info in context
+            const context = await authenticateToken({ req });
+            return context;
+        }
     }));
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, '../client/dist')));

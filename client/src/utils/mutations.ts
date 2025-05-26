@@ -12,12 +12,17 @@ export const ADD_PROFILE = gql`
   }
 `;
 
-export const ADD_SKILL = gql`
-  mutation addSkill($profileId: ID!, $skill: String!) {
-    addSkill(profileId: $profileId, skill: $skill) {
+export const ADD_JOB = gql`
+  mutation addJob($profileId: ID!, $job: JobInput!) {
+    addJob(profileId: $profileId, job: $job) {
       _id
       name
-      skills
+      jobs {
+        title
+        company
+        link
+        status
+      }
     }
   }
 `;
@@ -34,12 +39,22 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const REMOVE_SKILL = gql`
-  mutation removeSkill($skill: String!) {
-    removeSkill(skill: $skill) {
+export const UPDATE_JOB_STATUS = gql`
+  mutation UpdateJobStatus($jobId: ID!, $status: String!) {
+    updateJobStatus(jobId: $jobId, status: $status) {
       _id
-      name
-      skills
+      status
+    }
+  }
+`;
+
+export const DELETE_JOB = gql`
+  mutation DeleteJob($jobId: ID!) {
+    removeJob(jobId: $jobId) {
+      _id
+      jobs {
+        _id
+      }
     }
   }
 `;

@@ -1,0 +1,70 @@
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
+import { QUERY_ME } from '../utils/queries';
+import '../css/ProfileSection.css';
+
+interface Job {
+    _id: string;
+    title: string;
+    company?: string;
+    status?: string;
+}
+
+const ProfileSection: React.FC = () => {
+    const { loading, error, data } = useQuery(QUERY_ME);
+    const navigate = useNavigate(); // ✅ added this line
+
+    if (loading) {
+        return <div className="profile-section">Loading profile...</div>;
+    }
+
+    if (error || !data?.me) {
+        return <div className="profile-section">No profile data available.</div>;
+    }
+
+    const { name, jobs } = data.me;
+    const allJobs: Job[] = jobs || [];
+
+    const jobsApplied = allJobs.length;
+    const interviewsScheduled = allJobs.filter((job: Job) =>
+        job.status === 'Interview Scheduled' || job.status === 'Interview Completed'
+    ).length;
+    const offersReceived = allJobs.filter((job: Job) => job.status === 'Offer Accepted').length;
+
+    const interviewRate = jobsApplied > 0 ? ((interviewsScheduled / jobsApplied) * 100).toFixed(1) : '0';
+    const offerRate = jobsApplied > 0 ? ((offersReceived / jobsApplied) * 100).toFixed(1) : '0';
+
+    return (
+        <div className="profile-section">
+            <div className="profile-image-placeholder">
+                <p>Profile image</p>
+            </div>
+            <div className="profile-details">
+                <p><span className="detail-label">Name:</span> {name}</p>
+                <p><span className="detail-label">Email:</span> Not Available</p>
+                <p><span className="detail-label">Jobs Applied:</span> {jobsApplied}</p>
+            </div>
+
+            <div className="job-stats">
+                <h3>Your Progress</h3>
+                <p><span className="detail-label">Interviews:</span> {interviewsScheduled} ({interviewRate}%)</p>
+                <p><span className="detail-label">Offers:</span> {offersReceived} ({offerRate}%)</p>
+            </div>
+
+            <div className="sidebar-quick-actions">
+                <button className="sidebar-button" onClick={() => navigate('/add-job')}>
+                    Add New Job
+                </button>
+                <button className="sidebar-button">
+                    View Archived
+                </button>
+                <button className="sidebar-button">
+                    Edit Profile
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default ProfileSection; 

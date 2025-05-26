@@ -1,30 +1,41 @@
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+
+import Login from './pages/Login';
+import Home from './pages/Homepage';
+import AddJob from './pages/Addjob';
 
 import App from './App.jsx';
 
+// Wrapper component to pass profileId dynamically
+const AddJobWrapper = () => {
+  const profileId = localStorage.getItem('profileId');
+  if (!profileId) {
+    return <Navigate to="/login" replace />;
+  }
+  return <AddJob profileId={profileId} />;
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <Home />
-      }, {
-        path: '/login',
+        element: <Navigate to="/login" replace />
+      },
+      {
+        path: 'login',
         element: <Login />
-      }, {
-        path: '/signup',
-        element: <Signup />
-      }, {
-        path: '/profiles/:profileId',
-        element: <Profile />
-      }, {
-        path: '/me',
-        element: <Profile />
+      },
+      {
+        path: 'home',
+        element: <Home />
+      },
+      {
+        path: 'add-job',
+        element: <AddJobWrapper />
       }
     ]
   },

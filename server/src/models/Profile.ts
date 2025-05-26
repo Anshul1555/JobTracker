@@ -11,11 +11,10 @@ interface Job {
 
 // Define an interface for the Profile document
 export interface IProfile extends Document {
-  _id: string;
   name: string;
   email: string;
   password: string;
-  jobs: Job[]; // Changed from string[] to Job[]
+  jobs: Job[];
   isCorrectPassword(password: string): Promise<boolean>;
 }
 
@@ -71,4 +70,5 @@ profileSchema.methods.isCorrectPassword = async function (password: string): Pro
 
 // Create and export the Profile model
 const Profile = model<IProfile>('Profile', profileSchema);
+
 export default Profile;

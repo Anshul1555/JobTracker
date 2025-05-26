@@ -1,0 +1,253 @@
+/* src/css/HomePage.css */
+
+/* --- Existing Styles (from previous responses) --- */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#root, /* React's default root element ID */
+.App { /* Common class name for root component */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e2e8f0;
+    color: #2d3748;
+}
+
+.homepage-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.homepage-sidebar {
+    flex: 0 0 320px;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.homepage-main {
+    flex-grow: 1;
+    padding: 40px 50px;
+    background-color: #f8fafc;
+}
+
+.homepage-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.section-title {
+    font-size: 2.2em;
+    color: #1a202c;
+    font-weight: 700;
+    margin: 0;
+}
+
+.add-job-button {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.add-job-button:hover {
+    background-color: #5a67d8;
+    transform: translateY(-2px);
+}
+
+.add-job-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+}
+
+.empty-jobs-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #718096;
+    padding: 50px;
+    background-color: #f0f4f8;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.job-cards-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding-top: 10px;
+}
+
+.homepage-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5em;
+    color: #4a5568;
+    background-color: #e2e8f0;
+}
+
+.homepage-message.loading p {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.homepage-message.error p {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+
+/* --- NEW STYLES BELOW THIS LINE --- */
+
+.main-navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Make navigation buttons take full sidebar width */
+    margin-top: 40px; /* Space from ProfileSection */
+    padding: 0 20px; /* Padding for the navigation list itself */
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    padding: 15px 20px;
+    margin-bottom: 10px; /* Space between nav items */
+    text-align: left;
+    font-size: 1.1em;
+    color: #4a5568; /* Muted text color */
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners for buttons */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background-color: #edf2f7; /* Lighter background on hover */
+    color: #2d3748; /* Darker text on hover */
+}
+
+.nav-item.active {
+    background-color: #667eea; /* Primary accent color for active tab */
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* Subtle shadow for active item */
+}
+
+.nav-item.active:hover {
+    background-color: #5a67d8; /* Darker shade on hover for active */
+    color: white;
+}
+
+/* Interview Section Styles */
+.interviews-section,
+.documents-section,
+.network-section,
+.analytics-section {
+    padding-top: 10px; /* Consistent spacing from controls */
+}
+
+.interview-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px; /* Space between interview cards */
+    margin-top: 20px;
+}
+
+.interview-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 160px; /* Ensure consistent card height */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-left: 5px solid #667eea; /* Accent border on the left */
+}
+
+.interview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.interview-card h3 {
+    color: #1a202c;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.interview-card p {
+    color: #4a5568;
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.interview-card a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px; /* Space below content */
+    align-self: flex-start; /* Align link to the left */
+}
+
+.interview-card a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for other generic sections (documents, network, analytics) buttons */
+.add-document-button,
+.add-contact-button {
+    background-color: #48bb78; /* Green for add actions */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 3px 8px rgba(72, 187, 120, 0.3);
+}
+
+.add-document-button:hover,
+.add-contact-button:hover {
+    background-color: #38a169;
+    transform: translateY(-1px);
+}

@@ -8,7 +8,7 @@ const seedDatabase = async (): Promise<void> => {
     await db();
     await cleanDB();
 
-    await Profile.insertMany(profileSeeds);
+    await Profile.create(profileSeeds);
 
     console.log('Seeding completed successfully!');
     process.exit(0);
