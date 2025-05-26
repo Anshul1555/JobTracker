@@ -1,0 +1,100 @@
+/* src/css/JobCard.css */
+.job-card {
+  background-color: #ffffff; /* White background */
+  border-radius: 12px; /* Softer rounded corners */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+  padding: 25px; /* Increased padding */
+  margin-bottom: 25px; /* Space between cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px; /* Ensure consistent height for visual balance */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.job-card:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.job-info {
+  margin-bottom: 10px; /* Spacing between info lines */
+  font-size: 1.05em; /* Slightly larger font */
+  color: #4a5568; /* Darker grey text */
+}
+
+.job-info:last-of-type {
+  margin-bottom: 20px; /* More space before actions */
+}
+
+.info-label {
+  font-weight: 600; /* Semi-bold labels */
+  color: #2b3a4a; /* Darker for labels */
+}
+
+.job-info a {
+  color: #667eea; /* Primary accent color for links */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.job-info a:hover {
+  color: #5a67d8; /* Slightly darker on hover */
+  text-decoration: underline;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between select and button */
+  margin-top: auto; /* Push actions to the bottom */
+}
+
+.droplist {
+  flex-grow: 1; /* Allow dropdown to take available space */
+  padding: 10px 15px;
+  border: 1px solid #cbd5e1; /* Light grey border */
+  border-radius: 8px; /* Rounded corners for dropdown */
+  background-color: #f8f8fa; /* Light background */
+  font-size: 0.95em;
+  color: #4a5568;
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%234a5568" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.droplist:focus {
+  outline: none;
+  border-color: #667eea; /* Highlight on focus */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.delete-btn {
+  background-color: #ef4444; /* Red for delete */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1.2em; /* Slightly larger icon */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  line-height: 1; /* Ensure icon is vertically centered */
+  display: flex; /* Use flex to center icon */
+  justify-content: center;
+  align-items: center;
+  width: 45px; /* Fixed width to make it a nice square/rectangle */
+  height: 45px; /* Fixed height */
+}
+
+.delete-btn:hover {
+  background-color: #dc2626; /* Darker red on hover */
+  transform: scale(1.05); /* Slight scale up */
+}
+
+.delete-btn:active {
+  transform: scale(0.95); /* Slight scale down on click */
+}

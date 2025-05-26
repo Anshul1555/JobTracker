@@ -1,0 +1,71 @@
+/* src/css/ProfileSection.css */
+.profile-section {
+    background-color: #f0f4f8; /* Light blue-grey background */
+    padding: 30px 25px; /* More padding */
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    text-align: center;
+    color: #334e68; /* Darker text for readability */
+    margin-bottom: 20px; /* Space from bottom if not main sidebar */
+}
+
+.profile-image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #cbd5e1; /* Medium grey for placeholder */
+    border-radius: 50%; /* Circular image placeholder */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4a5568; /* Darker grey text */
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 20px; /* Space below image */
+    border: 3px solid #667eea; /* A nice accent border */
+}
+
+.profile-details p {
+    margin-bottom: 8px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.profile-details p:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 700; /* Bold labels */
+    color: #2b3a4a; /* Even darker for labels */
+}
+
+.sidebar-button {
+    background-color: #4a90e2; /* blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #357ABD;
+  }
+  
+  .sidebar-button:active {
+    background-color: #2C5FA5;
+  }
+  
+  .sidebar-quick-actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
