@@ -6,9 +6,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { Outlet } from 'react-router-dom';
-
-
+import { Outlet, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/Login';
+import Signup from './pages/Signup'; // <-- import your Signup page
+import NotFound from './pages/NotFound';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,7 +40,7 @@ function App() {
       <div className="flex-column justify-flex-start min-100-vh">
         {/* <Header /> */}
         <div className="container">
-          <Outlet />
+          <Outlet /> {/* This renders the matched child route */}
         </div>
         {/* <Footer /> */}
       </div>

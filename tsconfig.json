@@ -22,5 +22,14 @@
     "noImplicitReturns": true /* Enable error reporting for codepaths that do not explicitly return in a function. */,
     "noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */,
     "useUnknownInCatchVariables": true /* Ensure 'unknown' is used for catch clause variables. */
-  }
+  },
+  "include": [
+    "client/src",
+    "server/src"
+  ],
+  "exclude": [
+    "node_modules",
+    "client/dist",
+    "server/dist"
+  ]
 }
