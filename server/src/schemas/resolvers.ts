@@ -45,16 +45,29 @@ interface Context {
 const resolvers = {
   Query: {
     profiles: async (): Promise<ProfileType[]> => {
-      return await Profile.find();
+      const profiles = await Profile.find();
+      return profiles.map((profile: any) => {
+        const obj = profile.toObject() as ProfileType;
+        obj._id = obj._id as string | Types.ObjectId;
+        return obj;
+      });
     },
 
     profile: async (_parent: any, { profileId }: ProfileArgs): Promise<ProfileType | null> => {
-      return await Profile.findOne({ _id: profileId });
+      const profile = await Profile.findOne({ _id: profileId });
+      if (!profile) return null;
+      const obj = profile.toObject() as ProfileType;
+      obj._id = obj._id as string | Types.ObjectId;
+      return obj;
     },
 
     me: async (_parent: any, _args: any, context: Context): Promise<ProfileType | null> => {
       if (context.user) {
-        return await Profile.findOne({ _id: context.user._id });
+        const profile = await Profile.findOne({ _id: context.user._id });
+        if (!profile) return null;
+        const obj = profile.toObject() as ProfileType;
+        obj._id = obj._id as string | Types.ObjectId;
+        return obj;
       }
       throw new AuthenticationError('You must be logged in');
     },
@@ -64,12 +77,14 @@ const resolvers = {
     addProfile: async (_parent: any, { input }: AddProfileArgs): Promise<{ token: string; profile: ProfileType }> => {
       const jobs = input.jobs || [];
       const profile = await Profile.create({ ...input, jobs });
-      const token = signToken(profile.name, profile.email, profile._id.toString());
-      return { token, profile };
+      const token = signToken(profile.name, profile.email, (profile._id as Types.ObjectId).toString());
+      const obj = profile.toObject() as ProfileType;
+      obj._id = obj._id as string | Types.ObjectId;
+      return { token, profile: obj };
     },
 
     login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<{ token: string; profile: ProfileType }> => {
-      const profile: Document<any, any, ProfileType> & ProfileType | null = await Profile.findOne({ email });
+      const profile = await Profile.findOne({ email }) as Document<any, any, ProfileType> & ProfileType | null;
 
       if (!profile) {
         throw new AuthenticationError('Invalid credentials');
@@ -81,35 +96,47 @@ const resolvers = {
         throw new AuthenticationError('Invalid credentials');
       }
 
-      const token = signToken(profile.name, profile.email, profile._id.toString());
-      return { token, profile };
+      const token = signToken(profile.name, profile.email, (profile._id as Types.ObjectId).toString());
+      return { token, profile: profile.toObject() };
     },
 
     addJob: async (_parent: any, { profileId, job }: AddJobArgs, context: Context): Promise<ProfileType | null> => {
       if (context.user) {
-        return await Profile.findOneAndUpdate(
+        const profile = await Profile.findOneAndUpdate(
           { _id: profileId },
           { $addToSet: { jobs: job } },
           { new: true, runValidators: true }
         );
+        if (!profile) return null;
+        const obj = profile.toObject() as ProfileType;
+        obj._id = obj._id as string | Types.ObjectId;
+        return obj;
       }
       throw new AuthenticationError('You must be logged in');
     },
 
     removeProfile: async (_parent: any, _args: any, context: Context): Promise<ProfileType | null> => {
       if (context.user) {
-        return await Profile.findOneAndDelete({ _id: context.user._id });
+        const profile = await Profile.findOneAndDelete({ _id: context.user._id });
+        if (!profile) return null;
+        const obj = profile.toObject() as ProfileType;
+        obj._id = obj._id as string | Types.ObjectId;
+        return obj;
       }
       throw new AuthenticationError('You must be logged in');
     },
 
     removeJob: async (_parent: any, { jobId }: { jobId: string }, context: Context): Promise<ProfileType | null> => {
       if (context.user) {
-        return await Profile.findOneAndUpdate(
+        const profile = await Profile.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { jobs: { _id: jobId } } },
           { new: true }
         );
+        if (!profile) return null;
+        const obj = profile.toObject() as ProfileType;
+        obj._id = obj._id as string | Types.ObjectId;
+        return obj;
       }
       throw new AuthenticationError('You must be logged in');
     },
@@ -122,7 +149,8 @@ const resolvers = {
           throw new AuthenticationError('Profile not found');
         }
 
-        const job = profile.jobs.id(jobId);
+        // Use .find() instead of .id()
+        const job = profile.jobs.find((job: any) => job._id?.toString() === jobId);
         if (!job) {
           throw new Error('Job not found');
         }
