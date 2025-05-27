@@ -6,8 +6,8 @@
     "module": "ESNext" /* Specify what module code is generated. */,
     "moduleResolution": "Bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,
     "skipLibCheck": true,
-    "rootDir": "src" /* Specify the root folder within your source files. */,
-    "outDir": "dist" /* Specify an output folder for all emitted files. */,
+    "rootDir": "src",
+    "outDir": "dist",
     /* JavaScript Support */
     "allowJs": true /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */,
     "checkJs": true /* Enable error reporting in type-checked JavaScript files. */,
@@ -27,5 +27,9 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
   ]
 }
