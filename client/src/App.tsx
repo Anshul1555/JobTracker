@@ -10,6 +10,8 @@ import { Outlet, BrowserRouter as Router, Routes, Route } from 'react-router-dom
 import Login from './pages/Login';
 import Signup from './pages/Signup'; // <-- import your Signup page
 import NotFound from './pages/NotFound';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,11 +40,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="flex-column justify-flex-start min-100-vh">
-        {/* <Header /> */}
+        <Header />
         <div className="container">
           <Outlet /> {/* This renders the matched child route */}
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </ApolloProvider>
   );
