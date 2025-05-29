@@ -53,12 +53,6 @@ const ProfileSection: React.FC = () => {
             </div>
 
             <div className="sidebar-quick-actions">
-                <button className="sidebar-button" onClick={() => navigate('/add-job')}>
-                    Add New Job
-                </button>
-                <button className="sidebar-button">
-                    View Archived
-                </button>
                 <button className="sidebar-button" onClick={() => navigate('/edit-profile')}>
                     Edit Profile
                 </button>
