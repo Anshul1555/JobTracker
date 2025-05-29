@@ -13,19 +13,21 @@
 }
 
 .profile-image-placeholder {
-    width: 100px;
-    height: 100px;
-    background-color: #cbd5e1; /* Medium grey for placeholder */
-    border-radius: 50%; /* Circular image placeholder */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #4a5568; /* Darker grey text */
-    font-size: 0.9em;
-    font-weight: 600;
-    margin-bottom: 20px; /* Space below image */
-    border: 3px solid #667eea; /* A nice accent border */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #2b3a4a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  user-select: none;
+  text-transform: uppercase;
 }
+
 
 .profile-details p {
     margin-bottom: 8px;

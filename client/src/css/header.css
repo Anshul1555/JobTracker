@@ -1,6 +1,6 @@
 /* Header container */
 .header {
-    background-color: #ffffff;
+    background-color: #1c1b1b;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     padding: 15px 0; /* Remove side padding, keep vertical */
     position: sticky;

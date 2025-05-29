@@ -13,6 +13,8 @@
     overflow-x: hidden;
     padding-left: 0;
     padding-right: 0;
+    background-color: #ecf7fb;
+
 }
 
 /* Sidebar */
@@ -36,7 +38,7 @@
     flex-grow: 1;
     padding-top: 40px;
     
-    background-color: #f8fafc;
+    background-color: #f3f5f6;
     overflow-x: hidden;
     height: 100%;
 }
@@ -44,6 +46,7 @@
 /* Controls Header */
 .homepage-controls {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
     margin-bottom: 35px;
@@ -128,12 +131,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 10px;
     padding: 0 25px;
 }
 
 .nav-item {
-    background: none;
+    background-color: #ffffff;
     border: none;
     padding: 15px 20px;
     margin-bottom: 10px;
@@ -149,7 +152,7 @@
 }
 
 .nav-item:hover {
-    background-color: #edf2f7;
+    background-color: #a2cffc;
     color: #2d3748;
 }
 
