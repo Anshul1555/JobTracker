@@ -31,12 +31,18 @@
   font-weight: 600; /* Semi-bold labels */
   color: #2b3a4a; /* Darker for labels */
 }
-
 .job-info a {
-  color: #667eea; /* Primary accent color for links */
+  color: #667eea;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+
 
 .job-info a:hover {
   color: #5a67d8; /* Slightly darker on hover */

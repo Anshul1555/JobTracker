@@ -1,65 +1,47 @@
-/* src/css/HomePage.css */
-
-/* --- Existing Styles (from previous responses) --- */
-html,
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-#root, /* React's default root element ID */
-.App { /* Common class name for root component */
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #e2e8f0;
-    color: #2d3748;
-}
-
+/* Layout */
 .homepage-layout {
     display: flex;
+    width: 100vw;
     min-height: 100vh;
-    width: 100%;
     overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
 }
 
+/* Sidebar */
 .homepage-sidebar {
     flex: 0 0 320px;
     background-color: #ffffff;
-    padding: 30px;
     box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 10px;
     border-right: 1px solid #e2e8f0;
 }
 
+/* Main Content */
 .homepage-main {
     flex-grow: 1;
-    padding: 40px 50px;
+    padding: 40px 0;
     background-color: #f8fafc;
+    overflow-x: hidden;
 }
 
+/* Controls Header */
 .homepage-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 35px;
-    padding-bottom: 15px;
+    padding: 0 2vw 15px;
     border-bottom: 2px solid #e2e8f0;
 }
 
@@ -67,7 +49,8 @@ body {
     font-size: 2.2em;
     color: #1a202c;
     font-weight: 700;
-    margin: 0;
+    margin: 0 ;
+    padding: 0;
 }
 
 .add-job-button {
@@ -93,6 +76,7 @@ body {
     box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
 }
 
+/* Empty Message */
 .empty-jobs-message {
     text-align: center;
     font-size: 1.2em;
@@ -103,13 +87,16 @@ body {
     margin-top: 30px;
 }
 
+/* Job Cards */
 .job-cards-section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
-    padding-top: 10px;
+    padding: 10px 2vw 0;
+    width: 100%;
 }
 
+/* Loading & Error Messages */
 .homepage-message {
     display: flex;
     justify-content: center;
@@ -130,27 +117,25 @@ body {
     font-weight: 600;
 }
 
-
-/* --- NEW STYLES BELOW THIS LINE --- */
-
+/* Navigation */
 .main-navigation {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Make navigation buttons take full sidebar width */
-    margin-top: 40px; /* Space from ProfileSection */
-    padding: 0 20px; /* Padding for the navigation list itself */
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 25px;
 }
 
 .nav-item {
     background: none;
     border: none;
     padding: 15px 20px;
-    margin-bottom: 10px; /* Space between nav items */
+    margin-bottom: 10px;
     text-align: left;
     font-size: 1.1em;
-    color: #4a5568; /* Muted text color */
+    color: #4a5568;
     cursor: pointer;
-    border-radius: 8px; /* Rounded corners for buttons */
+    border-radius: 8px;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     display: flex;
     align-items: center;
@@ -158,34 +143,35 @@ body {
 }
 
 .nav-item:hover {
-    background-color: #edf2f7; /* Lighter background on hover */
-    color: #2d3748; /* Darker text on hover */
+    background-color: #edf2f7;
+    color: #2d3748;
 }
 
 .nav-item.active {
-    background-color: #667eea; /* Primary accent color for active tab */
+    background-color: #06aef7;
     color: white;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); /* Subtle shadow for active item */
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .nav-item.active:hover {
-    background-color: #5a67d8; /* Darker shade on hover for active */
+    background-color: #5a67d8;
     color: white;
 }
 
-/* Interview Section Styles */
+/* Section containers */
 .interviews-section,
 .documents-section,
 .network-section,
 .analytics-section {
-    padding-top: 10px; /* Consistent spacing from controls */
+    padding: 10px 2vw 0;
 }
 
+/* Interview Cards */
 .interview-cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px; /* Space between interview cards */
+    gap: 25px;
     margin-top: 20px;
 }
 
@@ -196,9 +182,9 @@ body {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    min-height: 160px; /* Ensure consistent card height */
+    min-height: 160px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    border-left: 5px solid #667eea; /* Accent border on the left */
+    border-left: 5px solid #667eea;
 }
 
 .interview-card:hover {
@@ -223,18 +209,18 @@ body {
     color: #667eea;
     text-decoration: none;
     font-weight: 500;
-    margin-top: 10px; /* Space below content */
-    align-self: flex-start; /* Align link to the left */
+    margin-top: 10px;
+    align-self: flex-start;
 }
 
 .interview-card a:hover {
     text-decoration: underline;
 }
 
-/* Styles for other generic sections (documents, network, analytics) buttons */
+/* Upload & Contact Buttons */
 .add-document-button,
 .add-contact-button {
-    background-color: #48bb78; /* Green for add actions */
+    background-color: #48bb78;
     color: white;
     border: none;
     border-radius: 8px;

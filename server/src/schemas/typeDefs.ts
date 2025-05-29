@@ -53,9 +53,11 @@ const typeDefs = `
 
   removeProfile: Profile
 
-  removeJob(jobId: ID!): Profile       # changed to jobId instead of profileId + title
+  removeJob(jobId: ID!): Profile 
+  updateProfile(name: String!, email: String!): Profile  
 
-  updateJobStatus(jobId: ID!, status: String!): Job  # new mutation returns updated Job
+
+  updateJobStatus(jobId: ID!, status: String!): Job
 }
 `;
 

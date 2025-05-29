@@ -1,7 +1,10 @@
 import { useNavigate, Link } from 'react-router-dom';
+import "../css/header.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  // Function to handle logout
+  const isLoggedIn = () => !!localStorage.getItem('id_token');
 
   const handleLogout = () => {
     localStorage.removeItem('id_token');
@@ -10,13 +13,13 @@ const Header = () => {
 
   return (
     <header className="header">
-      <nav className="container flex-row space-between align-center">
+      <nav className="header-container">
         <Link to="/home" className="logo">JobTracker</Link>
-        <div>
-          <button className="btn btn-secondary" onClick={handleLogout}>
+        {isLoggedIn() && (
+          <button className="logout-button" onClick={handleLogout}>
             Logout
           </button>
-        </div>
+        )}
       </nav>
     </header>
   );

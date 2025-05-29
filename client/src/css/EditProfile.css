@@ -1,0 +1,75 @@
+.edit-profile-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.back-button {
+    background: #65f6f6;
+    border: 2px solid #333;
+    color: #000000;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: 
+      color 0.3s ease,
+      border-color 0.3s ease,
+      background-color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #0056b3;
+    border-color: #0056b3;
+    background-color: #e6f0ff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.edit-profile-form label {
+    display: block;
+    margin-bottom: 18px;
+    font-weight: 600;
+    color: #555;
+}
+
+.edit-profile-form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.edit-profile-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.save-button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+    background-color: #0056b3;
+}

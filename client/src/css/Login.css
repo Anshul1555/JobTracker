@@ -1,15 +1,5 @@
 /* Login.css */
 
-/* Set full page background */
-body {
-    background-color: #d0e7ff; /* light blue */
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .login-container {
     max-width: 400px;

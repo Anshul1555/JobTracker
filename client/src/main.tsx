@@ -5,8 +5,10 @@ import Login from './pages/Login';
 import Home from './pages/Homepage';
 import AddJob from './pages/Addjob';
 import Signup from './pages/Signup';
+import EditProfile from './components/EditProfile';
 
 import App from './App.jsx';
+
 
 // Wrapper component to pass profileId dynamically
 const AddJobWrapper = () => {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: 'add-job',
         element: <AddJobWrapper />
+      },
+      {
+        path: 'edit-profile',
+        element: <EditProfile />
       }
     ]
   },

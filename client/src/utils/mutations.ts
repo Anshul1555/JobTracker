@@ -13,6 +13,18 @@ export const SIGNUP_USER = gql`
   }
 `;
 
+
+export const UPDATE_PROFILE = gql`
+  mutation UpdateProfile($name: String!, $email: String!) {
+    updateProfile(name: $name, email: $email) {
+      _id
+      name
+      email
+    }
+  }
+`;
+
+
 export const ADD_PROFILE = gql`
   mutation addProfile($input: ProfileInput!) {
     addProfile(input: $input) {

@@ -1,5 +1,7 @@
+import '../css/Footer.css';
+
 const Footer = () => (
-  <footer className="footer text-center" style={{ marginTop: "2rem", padding: "1rem 0", background: "#f5f5f5" }}>
+  <footer className="footer">
     <small>&copy; {new Date().getFullYear()} JobTracker. All rights reserved.</small>
   </footer>
 );

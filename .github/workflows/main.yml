@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run ESLint with autofix
-        run: npx eslint . --ext .ts,.tsx,.js --fix
-
       - name: Run Build
         run: |
           npm run build

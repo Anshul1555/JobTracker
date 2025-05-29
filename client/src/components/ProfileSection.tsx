@@ -23,7 +23,7 @@ const ProfileSection: React.FC = () => {
         return <div className="profile-section">No profile data available.</div>;
     }
 
-    const { name, jobs } = data.me;
+    const { name, email, jobs } = data.me;
     const allJobs: Job[] = jobs || [];
 
     const jobsApplied = allJobs.length;
@@ -42,7 +42,7 @@ const ProfileSection: React.FC = () => {
             </div>
             <div className="profile-details">
                 <p><span className="detail-label">Name:</span> {name}</p>
-                <p><span className="detail-label">Email:</span> Not Available</p>
+                <p><span className="detail-label">Email:</span> {email} </p>
                 <p><span className="detail-label">Jobs Applied:</span> {jobsApplied}</p>
             </div>
 
@@ -59,9 +59,10 @@ const ProfileSection: React.FC = () => {
                 <button className="sidebar-button">
                     View Archived
                 </button>
-                <button className="sidebar-button">
+                <button className="sidebar-button" onClick={() => navigate('/edit-profile')}>
                     Edit Profile
                 </button>
+
             </div>
         </div>
     );
