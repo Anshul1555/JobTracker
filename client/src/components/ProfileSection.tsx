@@ -11,9 +11,15 @@ interface Job {
     status?: string;
 }
 
+const getInitials = (fullName: string): string => {
+    const parts = fullName.trim().split(" ");
+    if (parts.length === 1) return parts[0][0].toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
+
 const ProfileSection: React.FC = () => {
     const { loading, error, data } = useQuery(QUERY_ME);
-    const navigate = useNavigate(); // ✅ added this line
+    const navigate = useNavigate();
 
     if (loading) {
         return <div className="profile-section">Loading profile...</div>;
@@ -24,8 +30,9 @@ const ProfileSection: React.FC = () => {
     }
 
     const { name, email, jobs } = data.me;
-    const allJobs: Job[] = jobs || [];
+    const initials = getInitials(name);
 
+    const allJobs: Job[] = jobs || [];
     const jobsApplied = allJobs.length;
     const interviewsScheduled = allJobs.filter((job: Job) =>
         job.status === 'Interview Scheduled' || job.status === 'Interview Completed'
@@ -38,7 +45,7 @@ const ProfileSection: React.FC = () => {
     return (
         <div className="profile-section">
             <div className="profile-image-placeholder">
-                <p>Profile image</p>
+                {initials}
             </div>
             <div className="profile-details">
                 <p><span className="detail-label">Name:</span> {name}</p>
@@ -56,10 +63,9 @@ const ProfileSection: React.FC = () => {
                 <button className="sidebar-button" onClick={() => navigate('/edit-profile')}>
                     Edit Profile
                 </button>
-
             </div>
         </div>
     );
 };
 
-export default ProfileSection; 
+export default ProfileSection;
