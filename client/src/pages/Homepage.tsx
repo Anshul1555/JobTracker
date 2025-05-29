@@ -57,7 +57,7 @@ const HomePage: React.FC = () => {
             await updateJobStatus({
                 variables: { jobId, status: newStatus },
             });
-            await refetch(); // Refresh data
+            await refetch();
         } catch (err) {
             console.error('Error updating status:', err);
         }
@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
     const handleDelete = async (jobId: string) => {
         try {
             await deleteJob({ variables: { jobId } });
-            await refetch(); // Refresh data
+            await refetch();
         } catch (err) {
             console.error('Error deleting job:', err);
         }
@@ -160,7 +160,7 @@ const HomePage: React.FC = () => {
                                         <p>Date: N/A (Add date field)</p>
                                         <p>Time: N/A (Add time field)</p>
                                         {job.link && (
-                                            <a href={`https://${job.link}`} target="_blank" rel="noopener noreferrer">
+                                            <a href={job.link.startsWith('http') ? job.link : `https://${job.link}`} target="_blank" rel="noopener noreferrer">
                                                 Job Link
                                             </a>
                                         )}

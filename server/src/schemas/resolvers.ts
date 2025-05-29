@@ -83,6 +83,16 @@ const resolvers = {
       return { token, profile: obj };
     },
 
+    updateProfile: async (_parent: any,args: { name: string, email: string }, context: Context) => {
+      const { name, email } = args;
+      const updatedProfile = await Profile.findByIdAndUpdate(
+        context.user!._id,
+        { name, email },
+        { new: true }
+      );
+      return updatedProfile;
+    },
+
     login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<{ token: string; profile: ProfileType }> => {
       const profile = await Profile.findOne({ email }) as Document<any, any, ProfileType> & ProfileType | null;
 

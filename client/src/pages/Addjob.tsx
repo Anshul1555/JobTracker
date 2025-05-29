@@ -21,7 +21,7 @@ const addJobStatusOptions = [
     "Rejected",
     "Withdrawn",
     "On Hold",
-    // add more if needed
+
 ];
 
 const AddJob: React.FC<{ profileId: string }> = ({ profileId }) => {
@@ -61,6 +61,15 @@ const AddJob: React.FC<{ profileId: string }> = ({ profileId }) => {
 
     return (
         <div className="addjob-container">
+            {/* Back Button */}
+            <button
+                type="button"
+                className="back-button"
+                onClick={() => navigate(-1)}
+                style={{ marginBottom: '1rem' }}
+            >
+                &larr; Back
+            </button>
             <h2>Add a New Job Application</h2>
             <form className="addjob-form" onSubmit={handleSubmit}>
                 <label htmlFor="company">Company Name</label>
@@ -92,7 +101,7 @@ const AddJob: React.FC<{ profileId: string }> = ({ profileId }) => {
                     name="link"
                     value={formData.link}
                     onChange={handleChange}
-                    placeholder="Optional job link"
+                    placeholder="https://example.com(Optional)"
                 />
 
                 <label htmlFor="status">Status</label>

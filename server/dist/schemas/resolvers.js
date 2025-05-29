@@ -40,6 +40,11 @@ const resolvers = {
             obj._id = obj._id;
             return { token, profile: obj };
         },
+        updateProfile: async (_parent, args, context) => {
+            const { name, email } = args;
+            const updatedProfile = await Profile.findByIdAndUpdate(context.user._id, { name, email }, { new: true });
+            return updatedProfile;
+        },
         login: async (_parent, { email, password }) => {
             const profile = await Profile.findOne({ email });
             if (!profile) {
