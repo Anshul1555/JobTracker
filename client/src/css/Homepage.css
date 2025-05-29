@@ -9,7 +9,7 @@
 .homepage-layout {
     display: flex;
     width: 100vw;
-    min-height: 100vh;
+    height: 90vh;
     overflow-x: hidden;
     padding-left: 0;
     padding-right: 0;
@@ -24,15 +24,21 @@
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;    
     border-right: 1px solid #e2e8f0;
+    height: 100vh;         
+    overflow-y: auto;      
 }
 
 /* Main Content */
 .homepage-main {
     flex-grow: 1;
-    padding: 40px 0;
+    padding-top: 40px;
+    
     background-color: #f8fafc;
     overflow-x: hidden;
+    height: 100%;
 }
 
 /* Controls Header */
