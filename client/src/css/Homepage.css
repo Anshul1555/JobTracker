@@ -12,8 +12,7 @@
     overflow-x: hidden;
     padding-left: 0;
     padding-right: 0;
-    background-color: #ecf7fb;
-
+    background-color: #bbe5f7;
 }
 
 /* Sidebar */
@@ -37,7 +36,7 @@
     padding-top: 40px;    
     background-color: #bbe5f7;
     overflow-x: hidden;
-    height: 87vh;
+    height: 100vh;
 }
 
 /* Controls Header */
