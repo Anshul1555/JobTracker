@@ -19,10 +19,12 @@ const Signup: React.FC = () => {
     try {
       const { data } = await signup({ variables: { input: formState } });
       // Optionally save token, redirect, etc.
-      if (data?.addProfile?.token) {
+      if (data?.addProfile?.token && data.addProfile.profile?._id) {
         localStorage.setItem('id_token', data.addProfile.token);
+        localStorage.setItem('profileId', data.addProfile.profile._id);
         navigate('/home');
       }
+
     } catch (err) {
       // Error handled below
     }

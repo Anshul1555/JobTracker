@@ -1,6 +1,6 @@
 /* src/css/JobCard.css */
 .job-card {
-  background-color: #ffffff; /* White background */
+  background-color: #f5f5f5; /* White background */
   border-radius: 12px; /* Softer rounded corners */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow */
   padding: 25px; /* Increased padding */

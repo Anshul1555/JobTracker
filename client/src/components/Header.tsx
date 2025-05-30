@@ -5,9 +5,12 @@ const Header = () => {
   const navigate = useNavigate();
   // Function to handle logout
   const isLoggedIn = () => !!localStorage.getItem('id_token');
+  const isLoginOrSignup = location.pathname === '/login' || location.pathname === '/signup';
 
   const handleLogout = () => {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('profileId');
+
     navigate('/login');
   };
 
@@ -15,7 +18,7 @@ const Header = () => {
     <header className="header">
       <nav className="header-container">
         <Link to="/home" className="logo">JobTracker</Link>
-        {isLoggedIn() && (
+        {isLoggedIn() && !isLoginOrSignup && (
           <button className="logout-button" onClick={handleLogout}>
             Logout
           </button>

@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // ✅ Add useNavigate
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -9,6 +9,11 @@ const Login = () => {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN_USER);
     const navigate = useNavigate(); // ✅ Create navigate function
+    useEffect(() => {
+        // Always clear any lingering auth tokens on login page
+        localStorage.removeItem('id_token');
+        localStorage.removeItem('profileId');
+    }, []);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;

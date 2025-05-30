@@ -18,7 +18,13 @@ const AddJobWrapper = () => {
   }
   return <AddJob profileId={profileId} />;
 };
-
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const token = localStorage.getItem('id_token');
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+  return <>{children}</>;
+};
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,15 +44,28 @@ const router = createBrowserRouter([
       },
       {
         path: 'home',
-        element: <Home />
+        element: (
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        )
       },
       {
         path: 'add-job',
-        element: <AddJobWrapper />
+        element:
+          (
+            <ProtectedRoute>
+              <AddJobWrapper />
+            </ProtectedRoute>
+          )
       },
       {
         path: 'edit-profile',
-        element: <EditProfile />
+        element: (
+          <ProtectedRoute>
+            <EditProfile />
+          </ProtectedRoute>
+        )
       }
     ]
   },
