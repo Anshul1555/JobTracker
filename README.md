@@ -52,3 +52,4 @@ JWT_SECRET=your-secret-key
 `npm run start`
 
 ## Deploy URL
+`https://jobtracker-jb6w.onrender.com/login`
