@@ -1,6 +1,6 @@
 /* src/css/JobCard.css */
 .job-card {
-  background-color: #f5f5f5; /* White background */
+  background-color: #e4f4fb; /* White background */
   border-radius: 12px; /* Softer rounded corners */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow */
   padding: 25px; /* Increased padding */
@@ -20,7 +20,7 @@
 .job-info {
   margin-bottom: 10px; /* Spacing between info lines */
   font-size: 1.05em; /* Slightly larger font */
-  color: #4a5568; /* Darker grey text */
+  color: #000000; /* Darker grey text */
 }
 
 .job-info:last-of-type {
@@ -29,7 +29,7 @@
 
 .info-label {
   font-weight: 600; /* Semi-bold labels */
-  color: #2b3a4a; /* Darker for labels */
+  color: #000000; /* Darker for labels */
 }
 .job-info a {
   color: #667eea;
@@ -61,9 +61,9 @@
   padding: 10px 15px;
   border: 1px solid #cbd5e1; /* Light grey border */
   border-radius: 8px; /* Rounded corners for dropdown */
-  background-color: #f8f8fa; /* Light background */
+  background-color: #e0f6ff; /* Light background */
   font-size: 0.95em;
-  color: #4a5568;
+  color: #14161c;
   appearance: none; /* Remove default arrow */
   background-image: url('data:image/svg+xml;utf8,<svg fill="%234a5568" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
   background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 /* src/css/ProfileSection.css */
 .profile-section {
-    background-color: #f0f4f8; /* Light blue-grey background */
+  background-color: #bbe5f7; /* Light blue-grey background */
     padding: 30px 25px; /* More padding */
     border-radius: 12px; /* Softer corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center; /* Center content */
     text-align: center;
-    color: #334e68; /* Darker text for readability */
+    color: #000000; /* Darker text for readability */
     margin-bottom: 20px; /* Space from bottom if not main sidebar */
 }
 
@@ -41,7 +41,7 @@
 
 .detail-label {
     font-weight: 700; /* Bold labels */
-    color: #2b3a4a; /* Even darker for labels */
+    color: #000000; /* Even darker for labels */
 }
 
 .sidebar-button {

@@ -1164,6 +1164,7 @@ label form [type='radio'] {
   width: 100%;
   margin: 0 0;
   box-sizing: border-box;
+  background-color: #065b83;
 }
 
 

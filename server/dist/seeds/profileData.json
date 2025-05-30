@@ -1,7 +1,7 @@
 [
     {
         "name": "Anshul Sharma",
-        "email": "anshul@gmail.com",
+        "email": "anshul@hotmail.com",
         "password": "password01",
         "jobs": [
             {
@@ -17,28 +17,52 @@
                 "status": "Interview Scheduled"
             },
             {
-                "title": " Developer",
-                "company": "Tech",
-                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "title": "Backend Developer",
+                "company": "Amazon",
+                "link": "https://www.amazon.jobs/en/jobs/backend-dev-9876",
                 "status": "Interview Completed"
             },
             {
-                "title": "FE Developer",
-                "company": "ALpha",
-                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "title": "Full Stack Developer",
+                "company": "Microsoft",
+                "link": "https://careers.microsoft.com/jobs/fullstack-dev-4321",
                 "status": "Offer Accepted"
             },
             {
-                "title": "BE Developer",
-                "company": "Amazon",
-                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "title": "Data Engineer",
+                "company": "Snowflake",
+                "link": "https://www.snowflake.com/careers/data-engineer-2468",
                 "status": "Offer Declined"
             },
             {
-                "title": "React Developer",
-                "company": "Moneris",
-                "link": "https://www.metacareers.com/jobs/react-dev-5678",
+                "title": "QA Engineer",
+                "company": "Netflix",
+                "link": "https://jobs.netflix.com/qa-engineer-1357",
                 "status": "On Hold"
+            },
+            {
+                "title": "Mobile Developer",
+                "company": "Spotify",
+                "link": "https://www.spotifyjobs.com/mobile-dev-9753",
+                "status": "Interview Scheduled"
+            },
+            {
+                "title": "DevOps Engineer",
+                "company": "RedHat",
+                "link": "https://redhat.com/careers/devops-engineer-8642",
+                "status": "Applied"
+            },
+            {
+                "title": "Cloud Architect",
+                "company": "Google Cloud",
+                "link": "https://careers.googlecloud.com/cloud-architect-7531",
+                "status": "Interview Scheduled"
+            },
+            {
+                "title": "Security Engineer",
+                "company": "Cisco",
+                "link": "https://jobs.cisco.com/security-engineer-1597",
+                "status": "Interview Scheduled"
             }
         ]
     }
