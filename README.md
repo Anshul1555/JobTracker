@@ -53,3 +53,8 @@ JWT_SECRET=your-secret-key
 
 ## Deploy URL
 `https://jobtracker-jb6w.onrender.com/login`
+
+## Demo
+
+https://github.com/user-attachments/assets/acff8ddc-0d76-4645-ad23-58d85fc49c32
+
