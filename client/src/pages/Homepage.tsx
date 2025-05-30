@@ -5,7 +5,7 @@ import { QUERY_ME } from '../utils/queries';
 import { UPDATE_JOB_STATUS, DELETE_JOB } from '../utils/mutations';
 import ProfileSection from '../components/ProfileSection';
 import JobCard from '../components/JobCard';
-import '../css/HomePage.css';
+import '../css/Homepage.css';
 
 interface Job {
     id: string;

@@ -1,5 +1,5 @@
 import { useNavigate, Link } from 'react-router-dom';
-import "../css/header.css";
+import "../css/Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
