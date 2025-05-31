@@ -59,7 +59,7 @@
 }
 
 .add-job-button {
-    background-color: #667eea;
+    background-color: #0066ff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -145,6 +145,7 @@
     display: flex;
     align-items: center;
     font-weight: 500;
+    border: #000000 1px solid;
 }
 
 .nav-item:hover {

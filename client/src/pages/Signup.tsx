@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { SIGNUP_USER } from '../utils/mutations'; // You need to define this mutation
 import { useNavigate } from 'react-router-dom';
+import "../css/Signup.css"
 
 const Signup: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', password: '' });
@@ -32,8 +33,8 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="container flex-column align-center" style={{ maxWidth: 400, margin: "2rem auto" }}>
-      <h2 className="text-center mb-3">Signup</h2>
+    <div className="signup-container" >
+      <h2 className="text-center">Signup</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name:</label>
@@ -68,7 +69,7 @@ const Signup: React.FC = () => {
             required
           />
         </div>
-        <button className="btn btn-primary btn-block" type="submit" disabled={loading}>
+        <button className="btn" type="submit" disabled={loading}>
           {loading ? 'Signing up...' : 'Sign Up'}
         </button>
         {error && <div className="text-danger text-center mt-2">Signup failed: {error.message}</div>}
